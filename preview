@@ -1,0 +1,70 @@
+# SmartOS Previews
+
+This page serves as a way for folks who are interested in things that
+will be coming to SmartOS soon to be able to try them out. These are all
+previews, they should not be used in production, there may be bugs, etc.
+Without further ado, here's what's currently in progress:
+
+## USB to Fast Ethernet Drivers
+
+[Masa Murayama](http://homepage2.nifty.com/mrym3/taiyodo/eng/) has put
+together a series of USB to Fast Ethernet devices for a wide array of
+devices. We often get questions about them in `#smartos`. Masa was happy
+to see them get pulled into illumos, so this workspace does exactly
+that. This covers his `axf`, `upf`, `urf`, and `udmf` drivers. Which
+covers over 100 different USB to Ethernet devices.
+
+  * USB->Ethernet build date: 05 Jan 2014
+  * [ISO](./usbgem/img/platform-20140105T194447Z.iso)
+  * [Platform](./usbgem/img/platform-20140105T194447Z.iso)
+  * [USB](./usbgem/img/platform-20140105T194447Z.iso)
+  * [illumos changes](./usbgem/code/illumos/index.html)
+  * [smartos changes](./usbgem/code/smartos/index.html)
+
+The individual drivers are also available for x86:
+
+   * [/kernel/misc/usbgem](./usbgem/drv/usbgem)
+   * [/kernel/misc/amd64/usbgem](./usbgem/drv/amd64/usbgem)
+   * [/kernel/drv/axf](./usbgem/drv/axf)
+   * [/kernel/drv/amd64/axf](./usbgem/drv/amd64/axf)
+   * [/kernel/drv/upf](./usbgem/drv/upf)
+   * [/kernel/drv/amd64/upf](./usbgem/drv/amd64/upf)
+   * [/kernel/drv/urf](./usbgem/drv/urf)
+   * [/kernel/drv/amd64/urf](./usbgem/drv/amd64/urf)
+   * [/kernel/drv/udmf](./usbgem/drv/udmf)
+   * [/kernel/drv/amd64/udmf](./usbgem/drv/amd64/udmf)
+
+## SIGINFO
+
+One thing that several folks who come from the BSD side of the world
+often miss in SmartOS is `SIGINFO` and that every friendly ^T. This
+workspace adds `SIGINFO` to illumos, adds a `SIGINFO` handler to `dd`
+and adds a few other minor enhancements to dd.
+
+  * SIGINFO build date: 05 Jan 2014
+  * [ISO](./siginfo/img/platform-20140105T203851Z.iso)
+  * [Platform](./siginfo/img/platform-20140105T203851Z.tgz)
+  * [USB](./siginfo/img/platform-20140105T203851Z.usb.bz2)
+  * [illumos changes](./siginfo/code/illumos/index.html)
+
+## Bardiche
+
+Bardiche is a project that is redesigning how others might consume a
+layer 2 datapath in the system. This is primarily aimed at solving the
+problem for virtualization, but it can also be consumed for anything
+which wishes to have a high throughput layer 2 datapath. More
+importantly, it allows these applications to utilize the various
+features that Fire Engine and Crossbow have brought to the networking
+stack, while creating a foundation for leveraging the capabilities of
+the system in a way that we can't today.
+
+Bardiche has it's own dedicated page currently available
+[here](../bardiche/bardiche.html).
+
+
+## Contact
+
+For questions, comments, thoughts, feedback, and anything else, talk to
+Robert Mustacchi, `rmustacc` in `#illumos` and `#smartos` on
+`irc.freenode.net`. Alternatively, send e-mail to
+`smartos-discuss@lists.smartos.org` or ping him directly.
