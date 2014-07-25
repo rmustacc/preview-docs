@@ -14,38 +14,12 @@ to see them get pulled into illumos, so this workspace does exactly
 that. This covers his `axf`, `upf`, `urf`, and `udmf` drivers. Which
 covers over 100 different USB to Ethernet devices.
 
-  * USB->Ethernet build date: 05 Jan 2014
-  * [ISO](./usbgem/img/platform-20140105T194447Z.iso)
-  * [Platform](./usbgem/img/platform-20140105T194447Z.iso)
-  * [USB](./usbgem/img/platform-20140105T194447Z.iso)
+  * USB->Ethernet build date: 28 Feb 2014
+  * [ISO](./usbgem/img/platform-20140228T030624Z.iso)
+  * [Platform](./usbgem/img/platform-20140228T030624Z.tgz)
+  * [USB](./usbgem/img/platform-20140228T030624Z.usb.bz2)
   * [illumos changes](./usbgem/code/illumos/index.html)
   * [smartos changes](./usbgem/code/smartos/index.html)
-
-The individual drivers are also available for x86:
-
-   * [/kernel/misc/usbgem](./usbgem/drv/usbgem)
-   * [/kernel/misc/amd64/usbgem](./usbgem/drv/amd64/usbgem)
-   * [/kernel/drv/axf](./usbgem/drv/axf)
-   * [/kernel/drv/amd64/axf](./usbgem/drv/amd64/axf)
-   * [/kernel/drv/upf](./usbgem/drv/upf)
-   * [/kernel/drv/amd64/upf](./usbgem/drv/amd64/upf)
-   * [/kernel/drv/urf](./usbgem/drv/urf)
-   * [/kernel/drv/amd64/urf](./usbgem/drv/amd64/urf)
-   * [/kernel/drv/udmf](./usbgem/drv/udmf)
-   * [/kernel/drv/amd64/udmf](./usbgem/drv/amd64/udmf)
-
-## SIGINFO
-
-One thing that several folks who come from the BSD side of the world
-often miss in SmartOS is `SIGINFO` and that every friendly ^T. This
-workspace adds `SIGINFO` to illumos, adds a `SIGINFO` handler to `dd`
-and adds a few other minor enhancements to dd.
-
-  * SIGINFO build date: 05 Jan 2014
-  * [ISO](./siginfo/img/platform-20140105T203851Z.iso)
-  * [Platform](./siginfo/img/platform-20140105T203851Z.tgz)
-  * [USB](./siginfo/img/platform-20140105T203851Z.usb.bz2)
-  * [illumos changes](./siginfo/code/illumos/index.html)
 
 ## Bardiche
 
@@ -60,6 +34,14 @@ the system in a way that we can't today.
 
 Bardiche has it's own dedicated page currently available
 [here](../bardiche/bardiche.html).
+
+## Old work
+
+The following previous preview pieces have since been integrated.
+
+The SIGINFO preview was resolved in commit
+[19d32b9ab53d17ac6605971e14c45a5281f8d9bb](https://github.com/joyent/illumos-joyent/commit/19d32b9ab53d17ac6605971e14c45a5281f8d9bb).
+SmartOS releases after 21 Jan 2014 should contain this change.
 
 
 ## Contact
