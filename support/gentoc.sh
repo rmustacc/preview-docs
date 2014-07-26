@@ -42,15 +42,20 @@ function epilogue
 
 function printlink
 {
-	typeset file title
+	typeset file title id
 	file=$1
 	title=$2
-	printf "<a href=\"./$file.html\">$title</a>\n"
+	id=$3
+	if [[ -n "$id" ]]; then
+		printf "<a href=\"./$file.html#$id\">$title</a>\n"
+	else
+		printf "<a href=\"./$file.html\">$title</a>\n"
+	fi
 }
 
 function doline
 {
-	typeset file level title
+	typeset file level title diff id
 	file=$1
 	level=$2
 	title=$3
@@ -58,6 +63,7 @@ function doline
 	[[ -z "$level" ]] && fatal "missing level"
 	[[ -z "$title" ]] && fatal "missing title"
 	level=$(printf $level | wc -c)
+	id=$(echo "$title" | tr -cd " [:alnum:]" | tr ' A-Z' '-a-z')
 
 	#
 	# We need to do one of a few things. If we're coming from increasing our
@@ -78,7 +84,7 @@ function doline
 		if [[ $gt_lay -eq 1 ]]; then
 			printlink "$file" "$title"
 		else
-			printf "%s\n" "$title"
+			printlink "$file" "$title" "$id"
 		fi
 	elif [[ $level -eq $gt_lay ]]; then
 		print_tab $level
@@ -89,22 +95,26 @@ function doline
 		if [[ $gt_lay -eq 1 ]]; then
 			printlink "$file" "$title"
 		else
-			printf "%s\n" "$title"
+			printlink "$file" "$title" "$id"
 		fi
 	else
-		print_tab $level
-		printf "</ul>\n"
-		print_tab $level
+		print_tab $gt_lay
 		printf "</li>\n"
+		while [[ $gt_lay -ne $level ]]; do
+			((gt_lay--))
+			print_tab $gt_lay
+			printf "</ul>\n"
+			print_tab $gt_lay
+			printf "</li>\n"
+		done
 		print_tab $level
 		printf "<li>\n"
 		print_tab $level
 		if [[ $gt_lay -eq 1 ]]; then
 			printlink "$file" "$title"
 		else
-			printf "%s\n" "$title"
+			printlink "$file" "$title" "$id"
 		fi
-		((gt_lay--))
 	fi
 }
 

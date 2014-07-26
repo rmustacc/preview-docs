@@ -5,39 +5,33 @@ will be coming to SmartOS soon to be able to try them out. These are all
 previews, they should not be used in production, there may be bugs, etc.
 Without further ado, here's what's currently in progress:
 
-## USB to Fast Ethernet Drivers
+## Overlay gate
 
-[Masa Murayama](http://homepage2.nifty.com/mrym3/taiyodo/eng/) has put
-together a series of USB to Fast Ethernet devices for a wide array of
-devices. We often get questions about them in `#smartos`. Masa was happy
-to see them get pulled into illumos, so this workspace does exactly
-that. This covers his `axf`, `upf`, `urf`, and `udmf` drivers. Which
-covers over 100 different USB to Ethernet devices.
+I'm currently working on developing overlay networking. In other words,
+network virtualization using encapsulation methods such as VXLAN and
+NVGRE, while allowing for custom means of looking up the destinations of
+machines. This is not yet alpha quality, but development previews are
+being created every so often.
 
-  * USB->Ethernet build date: 28 Feb 2014
-  * [ISO](./usbgem/img/platform-20140228T030624Z.iso)
-  * [Platform](./usbgem/img/platform-20140228T030624Z.tgz)
-  * [USB](./usbgem/img/platform-20140228T030624Z.usb.bz2)
-  * [illumos changes](./usbgem/code/illumos/index.html)
-  * [smartos changes](./usbgem/code/smartos/index.html)
+For getting started, see [this blog
+entry](http://dtrace.org/blogs/rm/illumos/illumos-overlay-networks-development-preview-01/)
 
-## Bardiche
+Latest images:
 
-Bardiche is a project that is redesigning how others might consume a
-layer 2 datapath in the system. This is primarily aimed at solving the
-problem for virtualization, but it can also be consumed for anything
-which wishes to have a high throughput layer 2 datapath. More
-importantly, it allows these applications to utilize the various
-features that Fire Engine and Crossbow have brought to the networking
-stack, while creating a foundation for leveraging the capabilities of
-the system in a way that we can't today.
-
-Bardiche has it's own dedicated page currently available
-[here](../bardiche/bardiche.html).
+* [ISO](http://us-east.manta.joyent.com/rmustacc/public/preview/overlay/01/bits/platform-20140725T023047Z.iso)
+* [USB](http://us-east.manta.joyent.com/rmustacc/public/preview/overlay/01/bits/platform-20140725T023047Z.usb.bz2)
+* [Raw platform](http://us-east.manta.joyent.com/rmustacc/public/preview/overlay/01/bits/)
 
 ## Old work
 
 The following previous preview pieces have since been integrated.
+
+The Bardiche project was integrated on 19 March 2014. See its [project
+page](../bardiche/bardiche.html) for more information.
+
+The USB to Fast Ethernet drivers work was integrated in commit
+[a16c14a26a4c72468482a0026ecaabafeb24fff9](https://github.com/joyent/illumos-joyent/commit/a16c14a26a4c72468482a0026ecaabafeb24fff9).
+SmartOS releases after 05 Mar 2014 should contain this change.
 
 The SIGINFO preview was resolved in commit
 [19d32b9ab53d17ac6605971e14c45a5281f8d9bb](https://github.com/joyent/illumos-joyent/commit/19d32b9ab53d17ac6605971e14c45a5281f8d9bb).
